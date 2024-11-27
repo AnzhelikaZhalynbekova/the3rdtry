@@ -29,7 +29,7 @@ function App() {
 
   // Фильтрация данных на основе строки поиска
   const filteredData = data.filter(item => 
-    item.name.toLowerCase().includes(searchString.toLowerCase())
+    item.name.toLowerCase().includes(searchString.toLowerCase()) // Фильтрация с учетом регистра
   );
 
   return (
