@@ -7,6 +7,9 @@ function App() {
   
   // Состояние для строки поиска
   const [searchString, setSearchString] = useState('');
+  
+  // Состояние для фильтрованных данных
+  const [filteredData, setFilteredData] = useState([]);
 
   // Используем useEffect для загрузки данных при первом рендере
   useEffect(() => {
@@ -27,10 +30,14 @@ function App() {
     setData(initialData); // Устанавливаем данные
   }, []); // Этот useEffect выполнится только один раз, при монтировании компонента
 
-  // Фильтрация данных на основе строки поиска
-  const filteredData = data.filter(item => 
-    item.name.toLowerCase().includes(searchString.toLowerCase()) // Фильтрация с учетом регистра
-  );
+  // Используем useEffect для фильтрации данных при изменении строки поиска
+  useEffect(() => {
+    // Фильтруем данные при каждом изменении строки поиска
+    const filtered = data.filter(item => 
+      item.name.toLowerCase().includes(searchString.toLowerCase())
+    );
+    setFilteredData(filtered); // Обновляем состояние с фильтрованными данными
+  }, [searchString, data]); // Этот useEffect выполнится при изменении searchString или data
 
   return (
     <div className="App" id="root">
