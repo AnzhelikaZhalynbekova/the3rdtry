@@ -15,16 +15,16 @@ function App() {
   useEffect(() => {
     // Инициализируем данные вручную
     const initialData = [
-      { id: 1, name: 'Apple' },
-      { id: 2, name: 'Banana' },
-      { id: 3, name: 'Cherry' },
-      { id: 4, name: 'Grape' },
-      { id: 5, name: 'Lemon' },
-      { id: 6, name: 'Mango' },
-      { id: 7, name: 'Orange' },
-      { id: 8, name: 'Peach' },
-      { id: 9, name: 'Pineapple' },
-      { id: 10, name: 'Strawberry' }
+      { id: 1, name: 'Gone with the Wind' },
+      { id: 2, name: 'The day lasts more than a Hundred Years' },
+      { id: 3, name: 'The Great Gatsby' },
+      { id: 4, name: 'Anna Karenina' },
+      { id: 5, name: 'The why Cafe' },
+      { id: 6, name: '1989' },
+      { id: 7, name: 'The War and Peace' },
+      { id: 8, name: 'Sherlock Holmes' },
+      { id: 9, name: 'The little women' },
+      { id: 10, name: 'The catcher in the rye' }
     ];
 
     setData(initialData); // Устанавливаем данные
@@ -41,19 +41,19 @@ function App() {
 
   return (
     <div className="App" id="root">
-      <h1>Search Fruits</h1>
+      <h1>Search Books</h1>
       {/* Поле для ввода строки поиска */}
       <input
         type="text"
         value={searchString}
         onChange={(e) => setSearchString(e.target.value)} // Обновляем строку поиска
-        placeholder="Search for a fruit"
+        placeholder="Search for a book"
       />
       <ul>
         {data.length === 0 ? (
           <p>Loading...</p>
         ) : filteredData.length === 0 ? (
-          <p>No fruits found</p> // Если нет совпадений
+          <p>No books found((</p> // Если нет совпадений
         ) : (
           filteredData.map(item => <li key={item.id}>{item.name}</li>) // Выводим отфильтрованный список
         )}
